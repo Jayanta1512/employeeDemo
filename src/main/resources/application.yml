@@ -1,14 +1,14 @@
 spring:
   datasource:
-    url: jdbc:sqlserver://employeedemo.database.windows.net:1433;database=employeeDemoDb;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
-    username: jayanta1512
-    password: Jayanta#1512
-    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:oracle:thin:@localhost:1521:XE
+    username: hr
+    password: Jay#2509
+    driver-class-name: oracle.jdbc.OracleDriver
   jpa:
     hibernate:
       ddl-auto: update
       hibernate:
-        dialect: org.hibernate.dialect.SQLServerDialect
+        dialect: org.hibernate.dialect.Oracle11gDialect
     show-sql: true
 
 server:

@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @ToString
 @Entity
-@Table(name = "EMPLOYEESDATA")
+@Table(name = "EMPLOYEESNEW")
 public class Employee {
 
     @Id
@@ -47,7 +47,8 @@ public class Employee {
     @Column(name = "MANAGER_ID")
     private Long managerId;
 
-    @Column(name = "DEPARTMENT_ID")
-    private Long deptId;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "DEPARTMENT_ID")
+    private Departments department;
 
 }
