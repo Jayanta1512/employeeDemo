@@ -29,6 +29,12 @@ public class DepartmentController {
         return departmentRepository.save(department);
     }
 
+    @PutMapping("/{id}")
+    public Departments updateDepartment(@PathVariable Long id, @RequestBody Departments department) {
+        department.setId(id);
+        return departmentRepository.save(department);
+    }
+
     @PostMapping("/{id}")
     public void deleteDepartment(@PathVariable Long id) {
             Departments department = departmentRepository.findById(id).get();

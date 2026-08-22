@@ -16,7 +16,8 @@ import java.time.LocalDate;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "emp_seq")
+    @SequenceGenerator(name = "emp_seq", sequenceName = "EMPLOYEESNEW_SEQ", allocationSize = 1)
     @Column(name = "EMPLOYEE_ID")
     private Long id;
 
@@ -47,7 +48,7 @@ public class Employee {
     @Column(name = "MANAGER_ID")
     private Long managerId;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @JoinColumn(name = "DEPARTMENT_ID")
     private Departments department;
 
